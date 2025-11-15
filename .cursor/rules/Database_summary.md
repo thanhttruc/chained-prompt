@@ -65,7 +65,6 @@ Goals {
     start_date
     end_date
     target_amount
-    target_achieved
     last_updated
 }
 ```

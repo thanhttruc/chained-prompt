@@ -2,7 +2,7 @@ import axios from 'axios'
 
 // Tạo Axios instance với cấu hình mặc định
 const axiosInstance = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001/api',
+  baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api',
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json',
@@ -40,4 +40,3 @@ axiosInstance.interceptors.response.use(
 )
 
 export default axiosInstance
-

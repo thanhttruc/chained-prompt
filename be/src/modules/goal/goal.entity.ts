@@ -55,22 +55,22 @@ export class Goal {
   })
   targetAmount: number;
 
-  @Column({
-    name: 'target_achieved',
-    type: 'decimal',
-    precision: 15,
-    scale: 2,
-    default: 0,
-  })
-  targetAchieved: number;
+  // @Column({
+  //   name: 'target_achieved',
+  //   type: 'decimal',
+  //   precision: 15,
+  //   scale: 2,
+  //   default: 0,
+  // })
+  // targetAchieved: number;
 
-  @Column({ name: 'last_updated', type: 'timestamp', nullable: true })
-  lastUpdated: Date;
+  // @Column({ name: 'last_updated', type: 'timestamp', nullable: true })
+  // lastUpdated: Date;
 
-  @CreateDateColumn({ name: 'created_at', type: 'timestamp', nullable: true })
-  createdAt: Date;
+  // @CreateDateColumn({ name: 'created_at', type: 'timestamp', nullable: true })
+  // createdAt: Date;
 
-  @UpdateDateColumn({ name: 'updated_at', type: 'timestamp', nullable: true })
-  updatedAt: Date;
+  // @UpdateDateColumn({ name: 'updated_at', type: 'timestamp', nullable: true })
+  // updatedAt: Date;
 }
 

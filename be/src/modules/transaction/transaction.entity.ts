@@ -80,10 +80,10 @@ export class Transaction {
   @JoinColumn({ name: 'category_id' })
   category: Category;
 
-  @CreateDateColumn({ name: 'created_at', type: 'timestamp', nullable: true })
-  createdAt: Date;
+  // @CreateDateColumn({ name: 'created_at', type: 'timestamp', nullable: true })
+  // createdAt: Date;
 
-  @UpdateDateColumn({ name: 'updated_at', type: 'timestamp', nullable: true })
-  updatedAt: Date;
+  // @UpdateDateColumn({ name: 'updated_at', type: 'timestamp', nullable: true })
+  // updatedAt: Date;
 }
 

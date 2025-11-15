@@ -39,7 +39,7 @@ src/
 Tạo file `.env` trong thư mục `fe/`:
 
 ```
-VITE_API_BASE_URL=http://localhost:3001/api
+VITE_API_BASE_URL=http://localhost:8000/api
 ```
 
 ## 📦 Dependencies chính
@@ -67,4 +67,3 @@ VITE_API_BASE_URL=http://localhost:3001/api
 ## 🌙 Theme
 
 Hỗ trợ dark mode thông qua ThemeContext. Theme được lưu trong localStorage.
-

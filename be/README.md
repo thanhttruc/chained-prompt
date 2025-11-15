@@ -23,64 +23,26 @@
 
 ## Description
 
-Financial Management System - Backend API được xây dựng với NestJS, TypeORM và MySQL.
+[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-## Cấu trúc Project
-
-```
-src/
- ├── main.ts
- ├── app.module.ts
- ├── config/               # DB, CORS, env config
- ├── common/               # Decorators, guards, interceptors, utils
- ├── modules/              # Mỗi feature là 1 module riêng
- │    ├── user/
- │    ├── account/
- │    ├── category/
- │    ├── transaction/
- │    ├── bill/
- │    └── goal/
- ├── filters/              # Exception filters
- ├── interceptors/         # Logging, response transform
- └── database/             # Database module
-```
-
-## Cài đặt
+## Project setup
 
 ```bash
 $ npm install
 ```
 
-## Cấu hình môi trường
-
-Tạo file `.env` từ `.env.example` và cấu hình thông tin database:
-
-```env
-DB_HOST=localhost
-DB_PORT=3306
-DB_USERNAME=root
-DB_PASSWORD=your_password
-DB_DATABASE=financial1
-PORT=3000
-NODE_ENV=development
-```
-
-## Chạy project
+## Compile and run the project
 
 ```bash
-# development mode (với hot-reload)
+# development
+$ npm run start
+
+# watch mode
 $ npm run start:dev
 
 # production mode
 $ npm run start:prod
-
-# build project
-$ npm run build
 ```
-
-Sau khi chạy, truy cập:
-- API: http://localhost:3000
-- Swagger Documentation: http://localhost:3000/api/docs
 
 ## Run tests
 
