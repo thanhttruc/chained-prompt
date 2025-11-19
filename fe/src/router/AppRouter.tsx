@@ -9,6 +9,11 @@ const Home = React.lazy(() => import('../pages/Home/Home'))
 const Login = React.lazy(() => import('../pages/Login/Login'))
 const Register = React.lazy(() => import('../pages/Register/Register'))
 const Dashboard = React.lazy(() => import('../pages/Dashboard/Dashboard'))
+const Bills = React.lazy(() => import('../pages/Bills/Bills'))
+const Transactions = React.lazy(() => import('../pages/Transactions/Transactions'))
+const Account = React.lazy(() => import('../pages/Account/Account'))
+const Goals = React.lazy(() => import('../pages/Goals/Goals'))
+const Expenses = React.lazy(() => import('../pages/Expenses/Expenses'))
 
 // Protected Route Component
 const ProtectedRoute: React.FC<{ children: React.ReactElement }> = ({ children }) => {
@@ -39,6 +44,46 @@ const AppRouter: React.FC = () => {
               element={
                 <ProtectedRoute>
                   <Dashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/bills"
+              element={
+                <ProtectedRoute>
+                  <Bills />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/transactions"
+              element={
+                <ProtectedRoute>
+                  <Transactions />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/account"
+              element={
+                <ProtectedRoute>
+                  <Account />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/goals"
+              element={
+                <ProtectedRoute>
+                  <Goals />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/expenses"
+              element={
+                <ProtectedRoute>
+                  <Expenses />
                 </ProtectedRoute>
               }
             />

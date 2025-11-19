@@ -62,10 +62,5 @@ export class Account {
   @OneToMany(() => Transaction, (transaction) => transaction.account)
   transactions: Transaction[];
 
-  @CreateDateColumn({ name: 'created_at', type: 'timestamp', nullable: true })
-  createdAt: Date;
-
-  @UpdateDateColumn({ name: 'updated_at', type: 'timestamp', nullable: true })
-  updatedAt: Date;
 }
 

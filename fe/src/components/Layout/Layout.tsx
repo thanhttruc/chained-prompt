@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../context/AuthContext'
 import { useTheme } from '../../context/ThemeContext'
+import NavigationBar from '../NavigationBar/NavigationBar'
 
 interface LayoutProps {
   children: ReactNode
@@ -30,26 +31,17 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             </div>
 
             <nav className="flex items-center space-x-4">
+              {isAuthenticated && (
+                <Link
+                  to="/dashboard"
+                  className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+                >
+                  Dashboard
+                </Link>
+              )}
+              <NavigationBar />
               {isAuthenticated ? (
                 <>
-                  <Link
-                    to="/dashboard"
-                    className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
-                  >
-                    Dashboard
-                  </Link>
-                  <Link
-                    to="/accounts"
-                    className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
-                  >
-                    Tài khoản
-                  </Link>
-                  <Link
-                    to="/transactions"
-                    className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
-                  >
-                    Giao dịch
-                  </Link>
                   <span className="text-gray-700 dark:text-gray-300">
                     {user?.full_name || user?.username}
                   </span>
