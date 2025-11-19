@@ -9,6 +9,14 @@ const Home = React.lazy(() => import('../pages/Home/Home'))
 const Login = React.lazy(() => import('../pages/Login/Login'))
 const Register = React.lazy(() => import('../pages/Register/Register'))
 const Dashboard = React.lazy(() => import('../pages/Dashboard/Dashboard'))
+const AccountListPage = React.lazy(() => import('../pages/AccountList/AccountListPage'))
+const AccountDetailPage = React.lazy(() => import('../pages/AccountDetail/AccountDetailPage'))
+const AddAccountPage = React.lazy(() => import('../pages/AddAccount/AddAccountPage'))
+const TransactionsPage = React.lazy(() => import('../pages/Transactions/TransactionsPage'))
+const AddTransactionPage = React.lazy(() => import('../pages/AddTransaction/AddTransactionPage'))
+const BillsPage = React.lazy(() => import('../pages/Bills/BillsPage'))
+const ExpensesPage = React.lazy(() => import('../pages/Expenses/ExpensesPage'))
+const GoalsPage = React.lazy(() => import('../pages/Goals/GoalsPage'))
 
 // Protected Route Component
 const ProtectedRoute: React.FC<{ children: React.ReactElement }> = ({ children }) => {
@@ -39,6 +47,70 @@ const AppRouter: React.FC = () => {
               element={
                 <ProtectedRoute>
                   <Dashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/accounts"
+              element={
+                <ProtectedRoute>
+                  <AccountListPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/accounts/:id"
+              element={
+                <ProtectedRoute>
+                  <AccountDetailPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/accounts/add"
+              element={
+                <ProtectedRoute>
+                  <AddAccountPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/transactions"
+              element={
+                <ProtectedRoute>
+                  <TransactionsPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/transactions/add"
+              element={
+                <ProtectedRoute>
+                  <AddTransactionPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/bills"
+              element={
+                <ProtectedRoute>
+                  <BillsPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/expenses"
+              element={
+                <ProtectedRoute>
+                  <ExpensesPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/goals"
+              element={
+                <ProtectedRoute>
+                  <GoalsPage />
                 </ProtectedRoute>
               }
             />

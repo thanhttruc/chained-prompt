@@ -34,12 +34,12 @@ export class Goal {
   })
   goalType: GoalType;
 
-  @Column({ name: 'category_id', type: 'int' })
-  categoryId: number;
+  @Column({ name: 'category_id', type: 'int', nullable: true })
+  categoryId: number | null;
 
-  @ManyToOne(() => Category, (category) => category.goals)
+  @ManyToOne(() => Category, (category) => category.goals, { nullable: true })
   @JoinColumn({ name: 'category_id' })
-  category: Category;
+  category: Category | null;
 
   @Column({ name: 'start_date', type: 'date' })
   startDate: Date;

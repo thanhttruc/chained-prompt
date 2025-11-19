@@ -6,7 +6,8 @@ interface AuthContextType {
   user: User | null
   isAuthenticated: boolean
   isLoading: boolean
-  login: (username: string, password: string) => Promise<void>
+  login: (email: string, password: string) => Promise<void>
+  register: (fullName: string, email: string, password: string, confirmPassword: string) => Promise<void>
   logout: () => void
   updateUser: (userData: User) => void
 }
@@ -36,19 +37,46 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     setIsLoading(false)
   }, [])
 
-  const login = async (username: string, password: string) => {
+  const login = async (email: string, password: string) => {
     try {
-      const response = await authService.login({ username, password })
+      const response = await authService.login({ email, password })
       if (response.success && response.data) {
-        const { user: userData, token } = response.data
-        localStorage.setItem('token', token)
-        localStorage.setItem('user', JSON.stringify(userData))
-        setUser(userData)
+        const { user: userData, accessToken } = response.data
+        // Map user data từ response format mới sang User type
+        const mappedUser: User = {
+          user_id: userData.id,
+          full_name: userData.fullName,
+          email: userData.email,
+          username: userData.email, // Fallback nếu không có username
+          total_balance: 0,
+        }
+        localStorage.setItem('token', accessToken)
+        localStorage.setItem('user', JSON.stringify(mappedUser))
+        setUser(mappedUser)
       } else {
         throw new Error(response.message || 'Đăng nhập thất bại')
       }
     } catch (error: any) {
       throw new Error(error.response?.data?.message || 'Đăng nhập thất bại')
+    }
+  }
+
+  const register = async (fullName: string, email: string, password: string, confirmPassword: string) => {
+    try {
+      const response = await authService.register({ fullName, email, password, confirmPassword })
+      // Map user data từ response format mới sang User type
+      const mappedUser: User = {
+        user_id: response.user.id,
+        full_name: response.user.fullName,
+        email: response.user.email,
+        username: response.user.email, // Fallback nếu không có username
+        total_balance: 0,
+      }
+      localStorage.setItem('token', response.token)
+      localStorage.setItem('user', JSON.stringify(mappedUser))
+      setUser(mappedUser)
+    } catch (error: any) {
+      throw error
     }
   }
 
@@ -69,6 +97,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         isAuthenticated: !!user,
         isLoading,
         login,
+        register,
         logout,
         updateUser,
       }}

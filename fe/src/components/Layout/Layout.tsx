@@ -50,6 +50,24 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                   >
                     Giao dịch
                   </Link>
+                  <Link
+                    to="/expenses"
+                    className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+                  >
+                    Chi tiêu
+                  </Link>
+                  <Link
+                    to="/bills"
+                    className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+                  >
+                    Hóa đơn
+                  </Link>
+                  <Link
+                    to="/goals"
+                    className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+                  >
+                    Mục tiêu
+                  </Link>
                   <span className="text-gray-700 dark:text-gray-300">
                     {user?.full_name || user?.username}
                   </span>

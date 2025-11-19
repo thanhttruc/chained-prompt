@@ -47,7 +47,7 @@ export class Transaction {
   itemDescription: string;
 
   @Column({ name: 'shop_name', type: 'varchar', length: 255, nullable: true })
-  shopName: string;
+  shopName: string | null;
 
   @Column({
     name: 'amount',
@@ -58,7 +58,7 @@ export class Transaction {
   amount: number;
 
   @Column({ name: 'payment_method', type: 'varchar', length: 100, nullable: true })
-  paymentMethod: string;
+  paymentMethod: string | null;
 
   @Column({
     name: 'status',
@@ -69,10 +69,10 @@ export class Transaction {
   status: TransactionStatus;
 
   @Column({ name: 'receipt_id', type: 'varchar', length: 255, nullable: true })
-  receiptId: string;
+  receiptId: string | null;
 
   @Column({ name: 'category_id', type: 'int', nullable: true })
-  categoryId: number;
+  categoryId: number | null;
 
   @ManyToOne(() => Category, (category) => category.transactions, {
     nullable: true,

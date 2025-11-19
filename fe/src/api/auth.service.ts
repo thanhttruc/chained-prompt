@@ -2,27 +2,34 @@ import axiosInstance from './axiosInstance'
 import { ApiResponse, User } from './types'
 
 export interface LoginRequest {
-  username: string
+  email: string
   password: string
 }
 
 export interface RegisterRequest {
-  full_name: string
+  fullName: string
   email: string
-  username: string
   password: string
-  phone_number?: string
+  confirmPassword: string
 }
 
 export const authService = {
   // Đăng nhập
-  login: async (data: LoginRequest): Promise<ApiResponse<{ user: User; token: string }>> => {
+  login: async (data: LoginRequest): Promise<ApiResponse<{ accessToken: string; user: { id: number; fullName: string; email: string } }>> => {
     const response = await axiosInstance.post('/auth/login', data)
     return response.data
   },
 
   // Đăng ký
-  register: async (data: RegisterRequest): Promise<ApiResponse<User>> => {
+  register: async (data: RegisterRequest): Promise<{
+    message: string
+    user: {
+      id: number
+      fullName: string
+      email: string
+    }
+    token: string
+  }> => {
     const response = await axiosInstance.post('/auth/register', data)
     return response.data
   },
